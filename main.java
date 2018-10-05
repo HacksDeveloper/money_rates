@@ -23,6 +23,16 @@ public class main {
             String question = page.select(".mfm-posr").text();
             //System.out.println("Question: " + question);
             Elements answers = page.select(".mfm-posr");
+                String url = "https://finance.liga.net/currency";
+                try{
+                    page = Jsoup.connect(url).get();
+                }
+                catch (IOException e){
+                    System.out.println("Error to load data from: "+url);
+                }
+                //String question = page.select(".mfm-posr").text();
+                //System.out.println("Question: " + question);
+                Elements answers = page.select(".usd");
             for (Element answerer : answers) {
                 //System.out.println("Answerer: " + answerer.text());
                 String example=answerer.text();
